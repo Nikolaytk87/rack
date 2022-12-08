@@ -2,7 +2,7 @@ class App
   OK = 200
   WRONG_FORMAT = 400
   NOT_FOUND = 404
-  FORMAT_PARAMS = { second: '%s', minute: '%M', hour: '%H', day: '%d', month: '%m', year: '%Y' }.freeze
+  FORMAT_PARAMS = { second: '%S', minute: '%M', hour: '%H', day: '%d', month: '%m', year: '%Y' }.freeze
 
   attr_reader :env, :path, :query, :method
 
