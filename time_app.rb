@@ -1,8 +1,6 @@
 require_relative 'time_formatter'
 
 class TimeApp
-  TIME_FORMATS = { second: '%S', minute: '%M', hour: '%H', day: '%d', month: '%m', year: '%Y' }.freeze
-
   def call(env)
     request = Rack::Request.new(env)
     handle(request)
