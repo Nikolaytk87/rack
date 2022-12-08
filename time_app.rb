@@ -23,16 +23,12 @@ class TimeApp
   end
 
   def response_with_ok(result)
-    body = ["#{result}\n"]
-    [200, headers, body]
+    body = "#{result}\n"
+    Rack::Response.new(body, 200).finish
   end
 
   def response_with_errors(invalid_params)
-    body = ["Unknown time format #{invalid_params}\n"]
-    [400, headers, body]
-  end
-
-  def headers
-    { 'content-type' => 'text/plain' }
+    body = "Unknown time format #{invalid_params}\n"
+    Rack::Response.new(body, 400).finish
   end
 end
