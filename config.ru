@@ -1,7 +1,9 @@
-require_relative 'middleware/runtime'
-require_relative 'app'
-require_relative 'middleware/logger'
+require 'rack'
+require_relative 'time_app'
 
-use Runtime
-use AppLogger, logdev: File.expand_path('log/app.log', __dir__)
-run App.new
+ROUTES = {
+  '/time' => TimeApp.new
+}
+
+use Rack::ContentType, 'text/plain'
+run Rack::URLMap.new(ROUTES)
